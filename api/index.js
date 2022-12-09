@@ -5,16 +5,16 @@ const colors = require('colors');
 const { conn } = require('./src/database/db.js');
 const userRoot = require('./src/controllers/userRoot/userRoot.controller');
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8080;
 
 // Start server
 conn
   .sync({ force: false })
   .then(() => {
-    server.listen(`0.0.0.0:${PORT}`, () => {
+    server.listen(PORT, () => {
       userRoot(); //crear usuario adminRoot sino existe en la DB.
       console.log(
-        colors.black.bgGreen(`==>> Server is running on PORT: ${port} `)
+        colors.black.bgGreen(`==>> Server is running on PORT: ${PORT} `)
       );
     });
   })
