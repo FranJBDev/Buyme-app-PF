@@ -11,7 +11,7 @@ const PORT = process.env.PORT;
 conn
   .sync({ force: false })
   .then(() => {
-    server.listen(`localhost:${PORT}`, () => {
+    server.listen(`0.0.0.0:${PORT}`, () => {
       userRoot(); //crear usuario adminRoot sino existe en la DB.
       console.log(
         colors.black.bgGreen(`==>> Server is running on PORT: ${port} `)
